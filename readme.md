@@ -1,4 +1,7 @@
 Warmth
 ==
 
-Control display warmth and reduced brightness.
+Control display warmth and reduce brightness.
+
+
+<img src="screenshot.png" width="306">
