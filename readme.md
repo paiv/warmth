@@ -1,7 +1,7 @@
 Warmth
 ==
 
-Control display warmth and reduce brightness.
+Control display warmth and reduce brightness with shade overlay.
 
 
 <img src="screenshot.png" width="306">
