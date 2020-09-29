@@ -81,9 +81,9 @@
                 v3 pixel = hsv_shade(&tint, &shade);
                 
                 v3 rgb = hsv_to_rgb(&pixel);
-                uint32_t r = rgb.x * 256;
-                uint32_t g = rgb.y * 256;
-                uint32_t b = rgb.z * 256;
+                uint32_t r = (uint8_t)(rgb.x * 255);
+                uint32_t g = (uint8_t)(rgb.y * 255);
+                uint32_t b = (uint8_t)(rgb.z * 255);
                 data[j*width + i] = (b << 24) | (g << 16) | (r << 8);
             }
         }
