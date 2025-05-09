@@ -3,10 +3,12 @@ Warmth
 
 Control display warmth and reduce brightness with shade overlay.
 
+[![standwithukraine](docs/StandWithUkraine.svg)](https://ukrainewar.carrd.co/)
 
-<img src="screenshot.png" width="306">
+
+<img src="docs/screenshot.png" width="306">
 
 
 To quit the app, hold <kbd>Command</kbd> while dragging app icon out of status area
 
-<img src="quit.gif" width="100">
+<img src="docs/quit.gif" width="100">
