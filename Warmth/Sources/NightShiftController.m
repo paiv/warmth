@@ -1,4 +1,5 @@
 #import "AppConfig.h"
+#import "AppDelegate.h"
 #import "AppSettings.h"
 #import "NightShiftController.h"
 #import "NightShiftControl.h"
@@ -35,8 +36,31 @@
     self.provider.strength = AppSettings.userSettings.shiftValue;
 }
 
+- (NSScreen*)currentScreen {
+    return self.control.window.screen;
+}
+
+- (ShadeWindowController*)shadeControllerForScreen:(NSScreen*)screen {
+    NSArray<ShadeWindowController*>* controllers = [NSApp.delegate performSelector:@selector(shadeControllers)];
+    for (ShadeWindowController* controller in controllers) {
+        if (controller.screen == screen) {
+            return controller;
+        }
+    }
+    return nil;
+}
+
 - (void)viewWillAppear {
-    self.shadeController = [NSApp.delegate performSelector:@selector(shadeController)];
+    self.shadeController = [self shadeControllerForScreen:self.currentScreen];
+    [self updateControl];
+}
+
+- (void)viewDidAppear {
+    self.shadeController = [self shadeControllerForScreen:self.currentScreen];
+    [self updateControl];
+}
+
+- (void)updateControl {
     self.control.shiftValue = self.provider.strength;
     self.control.shadeValue = self.shadeController.shadeValue;
 }

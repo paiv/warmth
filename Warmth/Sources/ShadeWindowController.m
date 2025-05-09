@@ -14,7 +14,7 @@
 }
 
 - (void)loadWindow {
-    NSRect windowRect = NSScreen.mainScreen.frame;
+    NSRect windowRect = self.screen.frame;
     NSWindow* window = [[NSWindow alloc] initWithContentRect:windowRect styleMask:(NSWindowStyleMaskFullScreen | NSWindowStyleMaskFullSizeContentView) backing:NSBackingStoreBuffered defer:NO];
     window.titlebarAppearsTransparent = YES;
     window.titleVisibility = NSWindowTitleHidden;
@@ -44,8 +44,13 @@
 }
 
 - (void)handleScreenParametersChange:(NSNotification*)notification {
-    NSRect windowRect = NSScreen.mainScreen.frame;
+    NSRect windowRect = self.screen.frame;
     [self.window setFrame:windowRect display:NO];
+}
+
+- (void)setScreen:(NSScreen *)screen {
+    _screen = screen;
+    [self handleScreenParametersChange:nil];
 }
 
 - (void)setShadeValue:(float)shadeValue {
